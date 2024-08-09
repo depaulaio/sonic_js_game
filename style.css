@@ -1,0 +1,62 @@
+/* resetando as configurações*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* configurando o enquadramento*/
+.gameplay {
+  width: 80%;
+  height: 520px;
+  border: 2px solid #ccc;
+  margin: 0 auto;
+  position: relative; /*respeita todo o enquadramento do gameplay*/
+  overflow: hidden; /*evita que nada saia da div*/
+}
+/* configurando o enquadramento do personagem*/
+.sonic {
+  bottom: 110px; /*define a posição vertical do elemento*/
+  position: absolute; /* controlar o posicionamento de um elemento em relação ao pai*/
+  width: 150px; /* tamanho do personagem*/
+}
+
+.jump {
+  animation: 1s sonic_animation infinite ease-out; /* duração da animação limpa para pulo do Sonic*/
+}
+
+.eggman {
+  width: 250px;
+  position: absolute;
+  bottom: 110px;
+  right: 0;
+  animation: 2s eggman_animation infinite linear; /* duração da animação do Egamann em velocidade constante*/
+}
+
+.fundo {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes eggman_animation {
+  0% {
+    right: -250px; /*sai de 0% em right com -250px*/
+  }
+  100% {
+    right: 100%; /*alcança 100% de animação nos 100% de height */
+  }
+}
+
+@keyframes sonic_animation {
+  0% { /*sai do zero com um posicionamento inicial de 110px*/
+    bottom: 110px;
+  }
+  25% {
+    bottom: 250px; /*lá em cima fica em 250px*/
+  }
+  75% {
+    bottom: 250px; /* lá em cima fica em 250px, faz com que ele permaneça um pouco no ar*/
+  }
+  100% {
+    bottom: 110px; /* retorna a posição inicial de 110px*/
+  }
+}
